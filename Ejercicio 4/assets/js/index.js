@@ -1,6 +1,6 @@
 console.log("Entro a index.js")
 
-//EDNPOINT https://cat-fact.herokuapp.com
+const tbody = document.getElementById('tbody');
 fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=all")
 .then(response => response.json())
 .then(datosApi => {
@@ -10,7 +10,7 @@ fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=all")
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['cases',],
+      labels: ['cases'],
       datasets: [{
         label: 'Casos COVID-19',
         data: datosApi.cases,
@@ -25,6 +25,14 @@ fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=all")
       }
     }
   });
+  labels.forEach(label => {
+    console.log(label)
+    
+  });
   
 });
+
+
+
+
 
